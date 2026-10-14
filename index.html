@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ShiKa</title>
+  <meta name="description" content="ShiKa, el asistente personal de Valentín Coluccio.">
+  <style>
+    :root {
+      --fondo: #faf9fc;
+      --texto: #1f1b2b;
+      --suave: #5d5770;
+      --acento: #6b46c1;
+      --borde: #e3dff0;
+      --tarjeta: #ffffff;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --fondo: #15121d;
+        --texto: #ece8f6;
+        --suave: #a9a2bd;
+        --acento: #b79cff;
+        --borde: #2e2840;
+        --tarjeta: #1d1928;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--fondo);
+      color: var(--texto);
+      font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+    main { max-width: 720px; margin: 0 auto; padding: 48px 16px 64px; }
+    h1 { font-size: 2.4rem; margin: 0 0 4px; letter-spacing: -0.02em; }
+    h2 { font-size: 1.3rem; margin: 40px 0 8px; }
+    .bajada { color: var(--suave); margin: 0 0 32px; }
+    .tarjeta {
+      background: var(--tarjeta);
+      border: 1px solid var(--borde);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+    a { color: var(--acento); }
+    ul { padding-left: 1.2em; }
+    footer { margin-top: 48px; color: var(--suave); font-size: 0.9rem; border-top: 1px solid var(--borde); padding-top: 16px; }
+    .idioma { font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+<main>
+  <p class="idioma"><a href="#english">English version</a></p>
+
+  <h1>ShiKa</h1>
+  <p class="bajada">El asistente personal de Valentín Coluccio, por voz y por texto.</p>
+
+  <p>
+    ShiKa es un asistente que Valentín Coluccio programó para usar él mismo. Corre en su
+    propia computadora: maneja la compu y las luces de su casa, y le contesta preguntas
+    sobre su agenda y sus mails.
+  </p>
+
+  <div class="tarjeta">
+    <strong>Uso personal.</strong> ShiKa no es un producto ni un servicio: no se ofrece
+    a otras personas y no tiene usuarios aparte de su dueño. Las únicas cuentas de
+    Google conectadas son las de Valentín.
+  </div>
+
+  <h2>Qué hace con Google</h2>
+  <p>Con el permiso que su dueño le da en cada una de sus cuentas de Google, ShiKa puede:</p>
+  <ul>
+    <li><strong>Leer el calendario</strong>, para contestar «¿qué tengo esta semana?» o «¿cuándo era la reunión con tal persona?».</li>
+    <li><strong>Leer los mails de Gmail</strong>, para buscar «el mail que me mandó tal persona» o «el que hablaba de tal tema», y contar qué dice.</li>
+  </ul>
+  <p>
+    Los dos permisos son <strong>solo de lectura</strong>: ShiKa nunca manda, borra, marca
+    ni cambia un mail, y nunca crea, mueve ni borra un evento.
+  </p>
+
+  <h2>Privacidad</h2>
+  <p>
+    Qué datos usa, dónde quedan y con quién se comparten está explicado en la
+    <a href="privacidad.html">política de privacidad</a>.
+  </p>
+
+  <footer>
+    Contacto: Valentín Coluccio · <a href="mailto:valentincoluccio3@gmail.com">valentincoluccio3@gmail.com</a>
+  </footer>
+
+  <section id="english" lang="en">
+    <h2>English</h2>
+    <p>
+      <strong>ShiKa</strong> is a personal voice and text assistant that Valentín Coluccio built
+      for his own use. It runs on his own computer: it controls the computer and the lights
+      at his home, and answers questions about his calendar and his email.
+    </p>
+    <p>
+      <strong>Personal use only.</strong> ShiKa is not a product or a service: it is not offered
+      to anyone else and has no users other than its owner. The only Google accounts connected
+      to it are Valentín's own.
+    </p>
+    <p>
+      With the permission its owner grants on each of his Google accounts, ShiKa can
+      <strong>read his calendar</strong> and <strong>read his Gmail messages</strong>, to answer his
+      questions. Both permissions are <strong>read-only</strong>: ShiKa never sends, deletes, labels
+      or changes an email, and never creates, moves or deletes an event.
+    </p>
+    <p>
+      What data it uses, where it stays and who it is shared with is explained in the
+      <a href="privacidad.html#english">privacy policy</a>.
+    </p>
+    <p>Contact: Valentín Coluccio · <a href="mailto:valentincoluccio3@gmail.com">valentincoluccio3@gmail.com</a></p>
+  </section>
+</main>
+</body>
+</html>
