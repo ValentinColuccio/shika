@@ -44,6 +44,7 @@
     }
     a { color: var(--acento); overflow-wrap: anywhere; }
     ul { padding-left: 1.2em; }
+    li + li { margin-top: 8px; }
     code { font-size: 0.9em; overflow-wrap: anywhere; }
     hr { border: 0; border-top: 1px solid var(--borde); margin: 56px 0 40px; }
     .idioma { font-size: 0.9rem; }
@@ -54,7 +55,7 @@
   <p class="idioma"><a href="index.html">← ShiKa</a> · <a href="#english">English version</a></p>
 
   <h1>Política de privacidad de ShiKa</h1>
-  <p class="bajada">Última actualización: 14 de octubre de 2026</p>
+  <p class="bajada">Última actualización: 21 de octubre de 2026</p>
 
   <p>
     ShiKa es un asistente personal que Valentín Coluccio programó para usar él mismo, en su
@@ -63,10 +64,12 @@
   </p>
 
   <div class="tarjeta">
-    <strong>En pocas palabras:</strong> ShiKa solo lee (nunca manda, borra ni cambia nada),
-    lo hace únicamente cuando su dueño le pregunta algo, no guarda el contenido de los
-    mails ni de los eventos, y no vende ni comparte nada con nadie, salvo lo necesario
-    para que Claude, de Anthropic, arme la respuesta.
+    <strong>En pocas palabras:</strong> ShiKa solo lee (nunca manda, borra ni cambia nada).
+    Lee los mails y el calendario cuando su dueño le pregunta algo y, además, cada media hora
+    busca sola las facturas de tres servicios para llevar la cuenta de sus gastos. Guarda unos
+    días un diario de todo lo que hace, con lo que leyó, y sin fecha de borrado el monto y el
+    vencimiento de esas facturas, en su computadora y en su OneDrive. No vende ni comparte
+    nada con nadie, salvo lo necesario para que Claude, de Anthropic, arme la respuesta.
   </div>
 
   <h2>1. Quién usa ShiKa</h2>
@@ -78,7 +81,7 @@
   <h2>2. Qué datos de Google usa</h2>
   <ul>
     <li><strong>La dirección de mail de cada cuenta</strong>, para saber de qué cuenta es cada permiso.</li>
-    <li><strong>Gmail, solo lectura</strong> (<code>gmail.readonly</code>): los mails, para buscarlos y leerlos cuando su dueño lo pide.</li>
+    <li><strong>Gmail, solo lectura</strong> (<code>gmail.readonly</code>): los mails, para buscarlos y leerlos cuando su dueño lo pide, y los de tres servicios que paga, para llevar la cuenta de sus gastos (punto 3).</li>
     <li><strong>Google Calendar, solo lectura</strong> (<code>calendar.readonly</code>): los eventos, para contestar qué hay en la agenda.</li>
   </ul>
   <p>
@@ -87,24 +90,59 @@
   </p>
 
   <h2>3. Para qué los usa</h2>
-  <p>
-    Únicamente para contestar lo que su dueño le pide, en el momento en que lo pide: por
-    ejemplo «¿qué tengo esta semana?» o «buscame el mail que me mandó tal persona». No
-    los usa para nada más: ni publicidad, ni perfiles, ni estadísticas.
-  </p>
+  <p>Para dos cosas:</p>
+  <ul>
+    <li>
+      <strong>Contestar lo que su dueño le pide</strong>, en el momento en que lo pide: por
+      ejemplo «¿qué tengo esta semana?» o «buscame el mail que me mandó tal persona».
+    </li>
+    <li>
+      <strong>Llevar la cuenta de sus gastos, sin que se lo pida.</strong> Mientras la
+      computadora está prendida, cada 30 minutos ShiKa busca en su Gmail los mails de tres
+      direcciones: las de Edenor (la luz), Prevención Salud (la medicina prepaga) y Personal
+      (internet). Abre solo los de facturas y pagos (de la publicidad de esos remitentes mira
+      el asunto y nada más), saca de cada uno el monto, el vencimiento y de qué servicio es, y
+      le avisa en voz alta cuando llega una factura y antes de que venza. La primera vez que
+      mira un servicio trae los mails de todo 2026, para armar la historia. Para esto no se
+      abre ningún mail de otro remitente, y esos mails los lee un programa con reglas fijas,
+      en la computadora: no se le mandan a Claude.
+    </li>
+  </ul>
+  <p>No los usa para nada más: ni publicidad, ni perfiles, ni estadísticas.</p>
 
   <h2>4. Dónde quedan</h2>
   <ul>
     <li>ShiKa corre en la computadora de su dueño. No tiene servidores propios.</li>
     <li>
-      <strong>El contenido de los mails y de los eventos no se guarda:</strong> se lee de Google
-      cuando hace falta para contestar y se descarta.
+      <strong>Un diario de los últimos días, con el contenido.</strong> Para poder revisar
+      después si algo anduvo mal, ShiKa anota todo lo que hace: cada pedido, lo que contestó y
+      lo que devolvió cada herramienta. Ahí quedan partes de los mails y de los eventos que
+      leyó (hasta unas 4.000 letras de cada lectura), también de los que lee sola para los
+      gastos. Se guardan el día de hoy y los dos anteriores; lo más viejo se borra solo.
     </li>
     <li>
-      Lo único que queda guardado es el permiso de cada cuenta, cifrado con la protección de
-      datos de Windows (solo se puede descifrar con el usuario de Windows de su dueño, en esa
-      computadora), y un registro técnico de lo que pasó (por ejemplo, que un pedido a
-      Google falló), que nunca incluye lo que dice un mail.
+      <strong>El libro de gastos.</strong> De cada mail de esos tres remitentes que mira,
+      guarda en qué cuenta está, su identificador en Gmail, el día que llegó y el asunto; de las
+      facturas y los pagos, además, el monto, el vencimiento y de qué servicio son. No guarda
+      el texto de los mails. El libro no se borra solo: es el historial de los gastos, y queda
+      hasta que su dueño lo borre.
+    </li>
+    <li>
+      Fuera del diario y del libro, el contenido de los mails y de los eventos no se guarda: se
+      lee de Google cuando hace falta y se descarta.
+    </li>
+    <li>
+      Además quedan el permiso de cada cuenta, cifrado con la protección de datos de Windows
+      (solo se puede descifrar con el usuario de Windows de su dueño, en esa computadora), y un
+      registro técnico de lo que pasó (por ejemplo, que un pedido a Google falló), que nunca
+      incluye lo que dice un mail.
+    </li>
+    <li>
+      <strong>Una copia en OneDrive.</strong> Todo lo que guarda ShiKa está en una carpeta del
+      OneDrive personal de su dueño, así que también se guarda en su cuenta de Microsoft
+      OneDrive, como el resto de sus archivos (el permiso, cifrado: tampoco ahí se puede leer).
+      Lo que el diario borra en la computadora se borra también de OneDrive, pero OneDrive, como
+      con cualquier archivo borrado, lo deja hasta 30 días en su papelera de reciclaje.
     </li>
   </ul>
 
@@ -116,6 +154,17 @@
     <a href="https://www.anthropic.com/legal/commercial-terms">condiciones comerciales</a> y su
     <a href="https://www.anthropic.com/legal/privacy">política de privacidad</a>, que dicen que no
     usa los datos que llegan por la API para entrenar sus modelos.
+  </p>
+  <p>
+    Los mails que ShiKa lee sola para los gastos no van a Claude. Claude ve solo lo que salió de
+    ellos (el monto, el vencimiento, de qué servicio es) cuando su dueño le pregunta por sus
+    gastos.
+  </p>
+  <p>
+    La copia en OneDrive (punto 4) la guarda <strong>Microsoft</strong>, como guarda los demás
+    archivos de la cuenta de su dueño, según su
+    <a href="https://privacy.microsoft.com/es-es/privacystatement">declaración de privacidad</a>.
+    Es el almacenamiento personal de su dueño: no se comparte con nadie.
   </p>
   <p>
     Nadie más los recibe: los datos de Google no se venden, no se alquilan, no se usan para
@@ -139,6 +188,10 @@
     cuenta. También se puede desconectar una cuenta desde el mismo ShiKa, que además borra el
     permiso guardado en la computadora.
   </p>
+  <p>
+    Sacarle el permiso no borra lo que ya quedó guardado: el diario se borra solo a los pocos
+    días, y el libro de gastos, cuando su dueño lo borre.
+  </p>
 
   <h2>8. Cambios</h2>
   <p>
@@ -153,7 +206,7 @@
 
   <section id="english" lang="en">
     <h1>ShiKa privacy policy</h1>
-    <p class="bajada">Last updated: October 14, 2026</p>
+    <p class="bajada">Last updated: October 21, 2026</p>
 
     <p>
       ShiKa is a personal assistant that Valentín Coluccio built for his own use, on his own
@@ -161,25 +214,66 @@
       what for, where it stays and who it is shared with.
     </p>
 
+    <div class="tarjeta">
+      <strong>In short:</strong> ShiKa only reads (it never sends, deletes or changes anything).
+      It reads email and the calendar when its owner asks something and, in addition, every half
+      hour it looks on its own for the bills of three services, to keep track of expenses. It
+      keeps a log of everything it does for a few days, including what it read, and keeps the
+      amount and due date of those bills with no deletion date, on its owner's computer and in
+      the owner's OneDrive. It does not sell or share anything with anyone, except what Claude,
+      by Anthropic, needs to write the answer.
+    </div>
+
     <h2>1. Who uses ShiKa</h2>
     <p>Only its owner, Valentín Coluccio. ShiKa is not offered to anyone else: the only Google accounts connected to it are his own.</p>
 
     <h2>2. Which Google data it uses</h2>
     <ul>
       <li><strong>The email address of each account</strong>, to know which account each permission belongs to.</li>
-      <li><strong>Gmail, read-only</strong> (<code>gmail.readonly</code>): messages, to search and read them when its owner asks.</li>
+      <li><strong>Gmail, read-only</strong> (<code>gmail.readonly</code>): messages, to search and read them when its owner asks, and those from three services the owner pays, to keep track of expenses (section 3).</li>
       <li><strong>Google Calendar, read-only</strong> (<code>calendar.readonly</code>): events, to answer what is on the calendar.</li>
     </ul>
     <p>With these permissions ShiKa cannot send, delete, mark as read or change an email, nor create, move or delete an event.</p>
 
     <h2>3. What it uses them for</h2>
-    <p>Only to answer what its owner asks, at the moment he asks. It does not use them for anything else: no advertising, no profiling, no analytics.</p>
+    <p>For two things:</p>
+    <ul>
+      <li><strong>Answering what its owner asks</strong>, at the moment it is asked: for example "what do I have this week?" or "find the email so-and-so sent me".</li>
+      <li>
+        <strong>Keeping track of expenses, without being asked.</strong> While the computer is on, every 30 minutes ShiKa
+        searches the owner's Gmail for messages from three addresses: those of Edenor (electricity), Prevención Salud
+        (health insurance) and Personal (internet). It only opens bills and payment receipts (for advertising from those
+        senders it looks at the subject and nothing else), takes the amount, the due date and which service it is from
+        each one, and announces out loud when a bill arrives and before it is due. The first time it checks a service it
+        fetches that service's emails from all of 2026, to build the history. No email from any other sender is opened for
+        this, and these emails are read by a program with fixed rules, on the computer: they are not sent to Claude.
+      </li>
+    </ul>
+    <p>It does not use them for anything else: no advertising, no profiling, no analytics.</p>
 
     <h2>4. Where the data stays</h2>
     <ul>
       <li>ShiKa runs on its owner's computer. It has no servers of its own.</li>
-      <li><strong>The content of emails and events is not stored:</strong> it is read from Google when needed to answer and then discarded.</li>
-      <li>The only things stored are each account's permission, encrypted with Windows data protection (it can only be decrypted by the owner's Windows user, on that computer), and a technical log of what happened (for example, that a request to Google failed), which never includes what an email says.</li>
+      <li>
+        <strong>A log of the last few days, with content.</strong> So that its owner can later check what went wrong if
+        something fails, ShiKa records everything it does: each request, what it answered and what each tool returned. This
+        includes parts of the emails and events it read (up to about 4,000 characters per read), including those it reads
+        on its own for expenses. It keeps today and the two previous days; anything older is deleted automatically.
+      </li>
+      <li>
+        <strong>The expense book.</strong> For each email from those three senders that it checks, it stores which account
+        it is in, its Gmail identifier, the day it arrived and its subject; for bills and payments, also the amount, the due
+        date and which service they are from. It does not store the text of the emails. The book is not deleted
+        automatically: it is the expense history, and it stays until its owner deletes it.
+      </li>
+      <li>Apart from the log and the book, the content of emails and events is not stored: it is read from Google when needed and then discarded.</li>
+      <li>Also stored are each account's permission, encrypted with Windows data protection (it can only be decrypted by the owner's Windows user, on that computer), and a technical log of what happened (for example, that a request to Google failed), which never includes what an email says.</li>
+      <li>
+        <strong>A copy in OneDrive.</strong> Everything ShiKa stores lives in a folder of its owner's personal OneDrive, so
+        it is also stored in the owner's Microsoft OneDrive account, like the rest of the owner's files (the permission
+        stays encrypted there too). What the log deletes on the computer is also deleted from OneDrive, but OneDrive, as with
+        any deleted file, keeps it in its recycle bin for up to 30 days.
+      </li>
     </ul>
 
     <h2>5. Who it is shared with</h2>
@@ -190,6 +284,12 @@
       <a href="https://www.anthropic.com/legal/commercial-terms">commercial terms</a> and its
       <a href="https://www.anthropic.com/legal/privacy">privacy policy</a>, which state that it does not
       use data received through the API to train its models.
+    </p>
+    <p>The emails ShiKa reads on its own for expenses are not sent to Claude. Claude only sees what was taken from them (the amount, the due date, which service) when its owner asks about expenses.</p>
+    <p>
+      The OneDrive copy (section 4) is stored by <strong>Microsoft</strong>, like the other files in the owner's account,
+      under its <a href="https://privacy.microsoft.com/en-us/privacystatement">privacy statement</a>. It is the owner's
+      personal storage: it is not shared with anyone.
     </p>
     <p>No one else receives it: Google data is not sold, rented, used for advertising or shared with other people or companies, and no person reads it other than the owner himself.</p>
 
@@ -206,6 +306,7 @@
       its access. From then on ShiKa can no longer read anything from that account. An account can also be disconnected from ShiKa
       itself, which also deletes the permission stored on the computer.
     </p>
+    <p>Revoking access does not delete what is already stored: the log deletes itself within a few days, and the expense book when its owner deletes it.</p>
 
     <h2>8. Changes</h2>
     <p>If what ShiKa does with Google data changes, this page is updated first, with the new date at the top.</p>
