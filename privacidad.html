@@ -67,7 +67,7 @@
     <strong>En pocas palabras:</strong> ShiKa solo lee (nunca manda, borra ni cambia nada).
     Lee los mails y el calendario cuando su dueño le pregunta algo y, además, cada media hora
     busca sola los mails de diez remitentes (las facturas de sus servicios, Mercado Pago, su
-    banco, cada compra con su tarjeta, sus viajes y sus compras) para llevar la cuenta de sus
+    banco, cada compra con su tarjeta de crédito, sus viajes y sus compras) para llevar la cuenta de sus
     gastos. Guarda unos días un diario de todo lo que hace, con lo que leyó, y sin fecha de
     borrado lo que saca de esos mails (montos, comercios, productos, cuotas, vencimientos), en
     su computadora y en su OneDrive. No vende ni comparte nada con nadie, salvo con Anthropic:
@@ -105,9 +105,9 @@
       remitentes (catorce direcciones, una por una):
       <ul>
         <li>las facturas de tres servicios: Edenor (la luz), Prevención Salud (la medicina prepaga) y Personal (internet);</li>
-        <li>Mercado Pago: los pagos aprobados, los de su tarjeta de crédito, las cuotas de un crédito y las devoluciones;</li>
-        <li>el Banco Patagonia: los avisos de las transferencias y de los pagos de la tarjeta, y el aviso de vencimiento de la Visa;</li>
-        <li>Visa: el aviso de cada compra con esa tarjeta;</li>
+        <li>Mercado Pago: los pagos aprobados, los de la tarjeta de crédito de Mercado Pago, las cuotas de un crédito y las devoluciones;</li>
+        <li>su banco: los avisos de las transferencias y de los pagos de su tarjeta de crédito, y el aviso de vencimiento de esa tarjeta;</li>
+        <li>su tarjeta de crédito: el aviso de cada compra con ella;</li>
         <li>Uber y DiDi: el recibo de cada viaje;</li>
         <li>Anthropic: los recibos de Claude;</li>
         <li>Mercado Libre: el aviso de cada compra («Compraste ...»).</li>
@@ -116,8 +116,8 @@
       transferencia o un resumen de tarjeta (de la publicidad de esos remitentes mira el asunto
       y nada más), y saca de cada uno lo que hace falta para la cuenta (punto 4). La primera vez
       que mira un remitente trae sus mails desde el 1 de enero de 2026, para armar la historia
-      (los de Visa y Mercado Libre, desde el 21 de octubre, cuando empezó a leerlos). Después
-      cruza los mails entre sí: la misma compra avisada por dos remitentes (Visa y Mercado Pago,
+      (los avisos de compra de su tarjeta de crédito y los de Mercado Libre, desde el 21 de octubre, cuando empezó a leerlos). Después
+      cruza los mails entre sí: la misma compra avisada por dos remitentes (su tarjeta de crédito y Mercado Pago,
       por ejemplo) queda una sola vez, y la plata que pasa de una cuenta suya a otra no cuenta
       como gasto. Para esto no se abre ningún mail de otro remitente, y esos mails los lee un
       programa con reglas fijas, en la computadora: no se le mandan a Claude.
@@ -126,8 +126,8 @@
   <p>
     Con lo que saca de esos mails, ShiKa le habla en voz alta a su dueño, solo entre las 9 y
     las 22: le avisa cuando llega una factura o el resumen de una tarjeta, cuánto es y antes
-    de que venza; de cada compra con la Visa, un rato después le pregunta en cuántas cuotas
-    fue, diciendo el comercio y el monto (el aviso de Visa no lo dice); y cuando un mail de
+    de que venza; de cada compra con su tarjeta de crédito, un rato después le pregunta en cuántas cuotas
+    fue, diciendo el comercio y el monto (el aviso de la tarjeta no lo dice); y cuando un mail de
     esos remitentes no lo pudo leer, le dice de quién es y su asunto, por si quiere que se lo
     lea. La voz la arma un programa en la misma computadora, sin internet, y lo que dice queda
     escrito en la ventana de ShiKa y en la app de ShiKa de su celular, que se comunica con la
@@ -153,8 +153,8 @@
       <ul>
         <li>el monto, la moneda (pesos o dólares), el día y, si es una factura, el vencimiento;</li>
         <li>el comercio o el servicio, y lo que se compró (el producto de Mercado Libre, el plan de Claude);</li>
-        <li>con qué se pagó (Mercado Pago, la Visa, la tarjeta de Mercado Pago) y en cuántas cuotas;</li>
-        <li>de una transferencia del Banco Patagonia, los últimos cuatro números de la cuenta de destino (el número entero no se guarda);</li>
+        <li>con qué se pagó (Mercado Pago, su tarjeta de crédito, la de Mercado Pago) y en cuántas cuotas;</li>
+        <li>de una transferencia desde su banco, los últimos cuatro números de la cuenta de destino (el número entero no se guarda);</li>
         <li>del resumen de una tarjeta, el saldo en pesos y en dólares, el pago mínimo, el cierre y el vencimiento.</li>
       </ul>
       No guarda el texto de los mails, ni lo demás que traen (por ejemplo, los últimos números
@@ -275,7 +275,7 @@
       <strong>In short:</strong> ShiKa only reads (it never sends, deletes or changes anything).
       It reads email and the calendar when its owner asks something and, in addition, every half
       hour it looks on its own for the emails of ten senders (the bills of the owner's services,
-      Mercado Pago, the owner's bank, each purchase with the owner's card, trips and purchases),
+      Mercado Pago, the owner's bank, each purchase with the owner's credit card, trips and purchases),
       to keep track of expenses. It keeps a log of everything it does for a few days, including
       what it read, and keeps what it takes from those emails (amounts, merchants, products,
       installments, due dates) with no deletion date, on its owner's computer and in the owner's
@@ -303,9 +303,9 @@
         searches the owner's Gmail for messages from ten senders (fourteen addresses, one at a time):
         <ul>
           <li>the bills of three services: Edenor (electricity), Prevención Salud (health insurance) and Personal (internet);</li>
-          <li>Mercado Pago: approved payments, those of its credit card, the installments of a loan, and refunds;</li>
-          <li>Banco Patagonia: the notices of transfers and of credit card payments, and the Visa due-date notice;</li>
-          <li>Visa: the notice of each purchase with that card;</li>
+          <li>Mercado Pago: approved payments, those of the Mercado Pago credit card, the installments of a loan, and refunds;</li>
+          <li>the owner's bank: the notices of transfers and of payments of the owner's credit card, and that card's due-date notice;</li>
+          <li>the owner's credit card: the notice of each purchase with it;</li>
           <li>Uber and DiDi: the receipt of each trip;</li>
           <li>Anthropic: the Claude receipts;</li>
           <li>Mercado Libre: the notice of each purchase ("Compraste ...").</li>
@@ -313,8 +313,8 @@
         It only opens those whose subject is that of a bill, a payment, a purchase, a trip, a transfer or a card statement
         (for advertising from those senders it looks at the subject and nothing else), and takes from each one what the
         accounting needs (section 4). The first time it checks a sender it fetches that sender's emails since January 1,
-        2026, to build the history (those from Visa and Mercado Libre, since October 21, when it started reading them).
-        Then it matches the emails against each other: the same purchase notified by two senders (Visa and Mercado Pago,
+        2026, to build the history (the credit card purchase notices and those from Mercado Libre, since October 21, when it started reading them).
+        Then it matches the emails against each other: the same purchase notified by two senders (the credit card and Mercado Pago,
         for example) is recorded once, and money moving from one of the owner's accounts to another does not count as an
         expense. No email from any other sender is opened for this, and these emails are read by a program with fixed
         rules, on the computer: they are not sent to Claude.
@@ -323,7 +323,7 @@
     <p>
       With what it takes from those emails, ShiKa speaks out loud to its owner, only between 9 a.m. and 10 p.m.: it
       announces when a bill or a card statement arrives, how much it is, and before it is due; for each purchase with the
-      Visa card, a while later it asks how many installments it was, saying the merchant and the amount (the Visa notice
+      owner's credit card, a while later it asks how many installments it was, saying the merchant and the amount (the card's notice
       does not say); and when it could not read an email from those senders, it says who it is from and its subject, in
       case the owner wants it read. The voice is generated by a program on the same computer, without internet, and what
       it says is also shown in ShiKa's window and in the ShiKa app on the owner's phone, which talks to the computer
@@ -347,8 +347,8 @@
         <ul>
           <li>the amount, the currency (pesos or dollars), the day and, for a bill, the due date;</li>
           <li>the merchant or service, and what was bought (the Mercado Libre product, the Claude plan);</li>
-          <li>how it was paid (Mercado Pago, the Visa card, the Mercado Pago card) and in how many installments;</li>
-          <li>for a transfer from Banco Patagonia, the last four digits of the destination account (the full number is not stored);</li>
+          <li>how it was paid (Mercado Pago, the owner's credit card, the Mercado Pago card) and in how many installments;</li>
+          <li>for a transfer from the owner's bank, the last four digits of the destination account (the full number is not stored);</li>
           <li>for a card statement, the balance in pesos and in dollars, the minimum payment, the closing date and the due date.</li>
         </ul>
         It does not store the text of the emails, nor anything else they contain (for example, the last digits of the card,
