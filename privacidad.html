@@ -55,7 +55,7 @@
   <p class="idioma"><a href="index.html">← ShiKa</a> · <a href="#english">English version</a></p>
 
   <h1>Política de privacidad de ShiKa</h1>
-  <p class="bajada">Última actualización: 21 de octubre de 2026</p>
+  <p class="bajada">Última actualización: 22 de octubre de 2026</p>
 
   <p>
     ShiKa es un asistente personal que Valentín Coluccio programó para usar él mismo, en su
@@ -66,11 +66,13 @@
   <div class="tarjeta">
     <strong>En pocas palabras:</strong> ShiKa solo lee (nunca manda, borra ni cambia nada).
     Lee los mails y el calendario cuando su dueño le pregunta algo y, además, cada media hora
-    busca sola las facturas de tres servicios para llevar la cuenta de sus gastos. Guarda unos
-    días un diario de todo lo que hace, con lo que leyó, y sin fecha de borrado el monto y el
-    vencimiento de esas facturas, en su computadora y en su OneDrive. No vende ni comparte
-    nada con nadie, salvo con Anthropic: lo necesario para que Claude arme la respuesta, y lo
-    que ve Claude Code cuando su dueño programa ShiKa.
+    busca sola los mails de diez remitentes (las facturas de sus servicios, Mercado Pago, su
+    banco, cada compra con su tarjeta, sus viajes y sus compras) para llevar la cuenta de sus
+    gastos. Guarda unos días un diario de todo lo que hace, con lo que leyó, y sin fecha de
+    borrado lo que saca de esos mails (montos, comercios, productos, cuotas, vencimientos), en
+    su computadora y en su OneDrive. No vende ni comparte nada con nadie, salvo con Anthropic:
+    lo necesario para que Claude arme la respuesta, y lo que ve Claude Code cuando su dueño
+    programa ShiKa.
   </div>
 
   <h2>1. Quién usa ShiKa</h2>
@@ -82,7 +84,7 @@
   <h2>2. Qué datos de Google usa</h2>
   <ul>
     <li><strong>La dirección de mail de cada cuenta</strong>, para saber de qué cuenta es cada permiso.</li>
-    <li><strong>Gmail, solo lectura</strong> (<code>gmail.readonly</code>): los mails, para buscarlos y leerlos cuando su dueño lo pide, y los de tres servicios que paga, para llevar la cuenta de sus gastos (punto 3).</li>
+    <li><strong>Gmail, solo lectura</strong> (<code>gmail.readonly</code>): los mails, para buscarlos y leerlos cuando su dueño lo pide, y los de diez remitentes con los que tiene gastos, para llevar la cuenta (punto 3).</li>
     <li><strong>Google Calendar, solo lectura</strong> (<code>calendar.readonly</code>): los eventos, para contestar qué hay en la agenda.</li>
   </ul>
   <p>
@@ -99,16 +101,38 @@
     </li>
     <li>
       <strong>Llevar la cuenta de sus gastos, sin que se lo pida.</strong> Mientras la
-      computadora está prendida, cada 30 minutos ShiKa busca en su Gmail los mails de tres
-      direcciones: las de Edenor (la luz), Prevención Salud (la medicina prepaga) y Personal
-      (internet). Abre solo los de facturas y pagos (de la publicidad de esos remitentes mira
-      el asunto y nada más), saca de cada uno el monto, el vencimiento y de qué servicio es, y
-      le avisa en voz alta cuando llega una factura y antes de que venza. La primera vez que
-      mira un servicio trae los mails de todo 2026, para armar la historia. Para esto no se
-      abre ningún mail de otro remitente, y esos mails los lee un programa con reglas fijas,
-      en la computadora: no se le mandan a Claude.
+      computadora está prendida, cada 30 minutos ShiKa busca en su Gmail los mails de diez
+      remitentes (catorce direcciones, una por una):
+      <ul>
+        <li>las facturas de tres servicios: Edenor (la luz), Prevención Salud (la medicina prepaga) y Personal (internet);</li>
+        <li>Mercado Pago: los pagos aprobados, los de su tarjeta de crédito, las cuotas de un crédito y las devoluciones;</li>
+        <li>el Banco Patagonia: los avisos de las transferencias y de los pagos de la tarjeta, y el aviso de vencimiento de la Visa;</li>
+        <li>Visa: el aviso de cada compra con esa tarjeta;</li>
+        <li>Uber y DiDi: el recibo de cada viaje;</li>
+        <li>Anthropic: los recibos de Claude;</li>
+        <li>Mercado Libre: el aviso de cada compra («Compraste ...»).</li>
+      </ul>
+      Abre solo los que tienen el asunto de una factura, un pago, una compra, un viaje, una
+      transferencia o un resumen de tarjeta (de la publicidad de esos remitentes mira el asunto
+      y nada más), y saca de cada uno lo que hace falta para la cuenta (punto 4). La primera vez
+      que mira un remitente trae sus mails desde el 1 de enero de 2026, para armar la historia
+      (los de Visa y Mercado Libre, desde el 21 de octubre, cuando empezó a leerlos). Después
+      cruza los mails entre sí: la misma compra avisada por dos remitentes (Visa y Mercado Pago,
+      por ejemplo) queda una sola vez, y la plata que pasa de una cuenta suya a otra no cuenta
+      como gasto. Para esto no se abre ningún mail de otro remitente, y esos mails los lee un
+      programa con reglas fijas, en la computadora: no se le mandan a Claude.
     </li>
   </ul>
+  <p>
+    Con lo que saca de esos mails, ShiKa le habla en voz alta a su dueño, solo entre las 9 y
+    las 22: le avisa cuando llega una factura o el resumen de una tarjeta, cuánto es y antes
+    de que venza; de cada compra con la Visa, un rato después le pregunta en cuántas cuotas
+    fue, diciendo el comercio y el monto (el aviso de Visa no lo dice); y cuando un mail de
+    esos remitentes no lo pudo leer, le dice de quién es y su asunto, por si quiere que se lo
+    lea. La voz la arma un programa en la misma computadora, sin internet, y lo que dice queda
+    escrito en la ventana de ShiKa y en la app de ShiKa de su celular, que se comunica con la
+    computadora directamente por el Wi-Fi, cifrado.
+  </p>
   <p>No los usa para nada más: ni publicidad, ni perfiles, ni estadísticas.</p>
 
   <h2>4. Dónde quedan</h2>
@@ -122,11 +146,31 @@
       gastos. Se guardan el día de hoy y los dos anteriores; lo más viejo se borra solo.
     </li>
     <li>
-      <strong>El libro de gastos.</strong> De cada mail de esos tres remitentes que mira,
-      guarda en qué cuenta está, su identificador en Gmail, el día que llegó y el asunto; de las
-      facturas y los pagos, además, el monto, el vencimiento y de qué servicio son. No guarda
-      el texto de los mails. El libro no se borra solo: es el historial de los gastos, y queda
-      hasta que su dueño lo borre.
+      <strong>El libro de gastos.</strong> De cada mail de esos diez remitentes que mira
+      (también de la publicidad, que no abre), guarda en qué cuenta está, su identificador en
+      Gmail, el día y la hora en que llegó y el asunto. De los que abre, guarda además lo que
+      sale del mail para la cuenta:
+      <ul>
+        <li>el monto, la moneda (pesos o dólares), el día y, si es una factura, el vencimiento;</li>
+        <li>el comercio o el servicio, y lo que se compró (el producto de Mercado Libre, el plan de Claude);</li>
+        <li>con qué se pagó (Mercado Pago, la Visa, la tarjeta de Mercado Pago) y en cuántas cuotas;</li>
+        <li>de una transferencia del Banco Patagonia, los últimos cuatro números de la cuenta de destino (el número entero no se guarda);</li>
+        <li>del resumen de una tarjeta, el saldo en pesos y en dólares, el pago mínimo, el cierre y el vencimiento.</li>
+      </ul>
+      No guarda el texto de los mails, ni lo demás que traen (por ejemplo, los últimos números
+      de la tarjeta, el código de autorización de una compra o el recorrido de un viaje). El
+      libro no se borra solo: es el historial de los gastos, y queda hasta que su dueño lo
+      borre.
+    </li>
+    <li>
+      <strong>Dónde termina lo de Google.</strong> En el mismo libro hay cosas que no salen de
+      Google: los gastos que su dueño le cuenta por voz o por escrito (lo que paga en efectivo,
+      las cuotas de una compra cuando ShiKa se las pregunta), lo que él corrige o marca (la
+      categoría de un comercio, si un gasto es de su empresa), y una lista de sus propias
+      cuentas bancarias que él mismo le dio, en un archivo aparte en la misma computadora. Con esa lista ShiKa reconoce las transferencias
+      a una cuenta suya, y las anota con el nombre que él le puso a esa cuenta, sin su número.
+      Nada de eso es información recibida de las API de Google, pero se guarda y se trata igual:
+      en la computadora y en su OneDrive, sin compartirse con nadie.
     </li>
     <li>
       Fuera del diario y del libro, el contenido de los mails y de los eventos no se guarda: se
@@ -157,9 +201,12 @@
     usa los datos que llegan por la API para entrenar sus modelos.
   </p>
   <p>
-    Los mails que ShiKa lee sola para los gastos no van a Claude. Claude ve solo lo que salió de
-    ellos (el monto, el vencimiento, de qué servicio es) cuando su dueño le pregunta por sus
-    gastos.
+    Los mails que ShiKa lee sola para los gastos no van a Claude. Cuando su dueño le pregunta
+    por sus gastos, Claude ve lo que salió de ellos y quedó en el libro: el monto, la moneda,
+    el día y el vencimiento, el comercio o el producto, con qué se pagó, las cuotas, lo que
+    debe cada tarjeta, los últimos cuatro números de la cuenta de destino de una transferencia,
+    y el asunto de los mails que no pudo leer (por si su dueño le pide que se lo lea, como
+    cualquier otro mail).
   </p>
   <p>
     Además, su dueño programa y revisa ShiKa con <strong>Claude Code</strong>, otra herramienta de
@@ -216,7 +263,7 @@
 
   <section id="english" lang="en">
     <h1>ShiKa privacy policy</h1>
-    <p class="bajada">Last updated: October 21, 2026</p>
+    <p class="bajada">Last updated: October 22, 2026</p>
 
     <p>
       ShiKa is a personal assistant that Valentín Coluccio built for his own use, on his own
@@ -227,10 +274,12 @@
     <div class="tarjeta">
       <strong>In short:</strong> ShiKa only reads (it never sends, deletes or changes anything).
       It reads email and the calendar when its owner asks something and, in addition, every half
-      hour it looks on its own for the bills of three services, to keep track of expenses. It
-      keeps a log of everything it does for a few days, including what it read, and keeps the
-      amount and due date of those bills with no deletion date, on its owner's computer and in
-      the owner's OneDrive. It does not sell or share anything with anyone, except with Anthropic:
+      hour it looks on its own for the emails of ten senders (the bills of the owner's services,
+      Mercado Pago, the owner's bank, each purchase with the owner's card, trips and purchases),
+      to keep track of expenses. It keeps a log of everything it does for a few days, including
+      what it read, and keeps what it takes from those emails (amounts, merchants, products,
+      installments, due dates) with no deletion date, on its owner's computer and in the owner's
+      OneDrive. It does not sell or share anything with anyone, except with Anthropic:
       what Claude needs to write the answer, and what Claude Code sees when its owner works on ShiKa.
     </div>
 
@@ -240,7 +289,7 @@
     <h2>2. Which Google data it uses</h2>
     <ul>
       <li><strong>The email address of each account</strong>, to know which account each permission belongs to.</li>
-      <li><strong>Gmail, read-only</strong> (<code>gmail.readonly</code>): messages, to search and read them when its owner asks, and those from three services the owner pays, to keep track of expenses (section 3).</li>
+      <li><strong>Gmail, read-only</strong> (<code>gmail.readonly</code>): messages, to search and read them when its owner asks, and those from ten senders the owner has expenses with, to keep track of them (section 3).</li>
       <li><strong>Google Calendar, read-only</strong> (<code>calendar.readonly</code>): events, to answer what is on the calendar.</li>
     </ul>
     <p>With these permissions ShiKa cannot send, delete, mark as read or change an email, nor create, move or delete an event.</p>
@@ -251,14 +300,35 @@
       <li><strong>Answering what its owner asks</strong>, at the moment it is asked: for example "what do I have this week?" or "find the email so-and-so sent me".</li>
       <li>
         <strong>Keeping track of expenses, without being asked.</strong> While the computer is on, every 30 minutes ShiKa
-        searches the owner's Gmail for messages from three addresses: those of Edenor (electricity), Prevención Salud
-        (health insurance) and Personal (internet). It only opens bills and payment receipts (for advertising from those
-        senders it looks at the subject and nothing else), takes the amount, the due date and which service it is from
-        each one, and announces out loud when a bill arrives and before it is due. The first time it checks a service it
-        fetches that service's emails from all of 2026, to build the history. No email from any other sender is opened for
-        this, and these emails are read by a program with fixed rules, on the computer: they are not sent to Claude.
+        searches the owner's Gmail for messages from ten senders (fourteen addresses, one at a time):
+        <ul>
+          <li>the bills of three services: Edenor (electricity), Prevención Salud (health insurance) and Personal (internet);</li>
+          <li>Mercado Pago: approved payments, those of its credit card, the installments of a loan, and refunds;</li>
+          <li>Banco Patagonia: the notices of transfers and of credit card payments, and the Visa due-date notice;</li>
+          <li>Visa: the notice of each purchase with that card;</li>
+          <li>Uber and DiDi: the receipt of each trip;</li>
+          <li>Anthropic: the Claude receipts;</li>
+          <li>Mercado Libre: the notice of each purchase ("Compraste ...").</li>
+        </ul>
+        It only opens those whose subject is that of a bill, a payment, a purchase, a trip, a transfer or a card statement
+        (for advertising from those senders it looks at the subject and nothing else), and takes from each one what the
+        accounting needs (section 4). The first time it checks a sender it fetches that sender's emails since January 1,
+        2026, to build the history (those from Visa and Mercado Libre, since October 21, when it started reading them).
+        Then it matches the emails against each other: the same purchase notified by two senders (Visa and Mercado Pago,
+        for example) is recorded once, and money moving from one of the owner's accounts to another does not count as an
+        expense. No email from any other sender is opened for this, and these emails are read by a program with fixed
+        rules, on the computer: they are not sent to Claude.
       </li>
     </ul>
+    <p>
+      With what it takes from those emails, ShiKa speaks out loud to its owner, only between 9 a.m. and 10 p.m.: it
+      announces when a bill or a card statement arrives, how much it is, and before it is due; for each purchase with the
+      Visa card, a while later it asks how many installments it was, saying the merchant and the amount (the Visa notice
+      does not say); and when it could not read an email from those senders, it says who it is from and its subject, in
+      case the owner wants it read. The voice is generated by a program on the same computer, without internet, and what
+      it says is also shown in ShiKa's window and in the ShiKa app on the owner's phone, which talks to the computer
+      directly over Wi-Fi, encrypted.
+    </p>
     <p>It does not use them for anything else: no advertising, no profiling, no analytics.</p>
 
     <h2>4. Where the data stays</h2>
@@ -271,10 +341,28 @@
         on its own for expenses. It keeps today and the two previous days; anything older is deleted automatically.
       </li>
       <li>
-        <strong>The expense book.</strong> For each email from those three senders that it checks, it stores which account
-        it is in, its Gmail identifier, the day it arrived and its subject; for bills and payments, also the amount, the due
-        date and which service they are from. It does not store the text of the emails. The book is not deleted
-        automatically: it is the expense history, and it stays until its owner deletes it.
+        <strong>The expense book.</strong> For each email from those ten senders that it checks (advertising included,
+        which it does not open), it stores which account it is in, its Gmail identifier, the day and time it arrived and
+        its subject. For those it opens, it also stores what the email says that the accounting needs:
+        <ul>
+          <li>the amount, the currency (pesos or dollars), the day and, for a bill, the due date;</li>
+          <li>the merchant or service, and what was bought (the Mercado Libre product, the Claude plan);</li>
+          <li>how it was paid (Mercado Pago, the Visa card, the Mercado Pago card) and in how many installments;</li>
+          <li>for a transfer from Banco Patagonia, the last four digits of the destination account (the full number is not stored);</li>
+          <li>for a card statement, the balance in pesos and in dollars, the minimum payment, the closing date and the due date.</li>
+        </ul>
+        It does not store the text of the emails, nor anything else they contain (for example, the last digits of the card,
+        the authorization code of a purchase or the route of a trip). The book is not deleted automatically: it is the
+        expense history, and it stays until its owner deletes it.
+      </li>
+      <li>
+        <strong>Where Google data ends.</strong> The same book holds things that do not come from Google: expenses the
+        owner tells ShiKa by voice or in writing (what is paid in cash, the installments of a purchase when ShiKa asks),
+        what the owner corrects or marks (a merchant's category, whether an expense belongs to the owner's company), and a
+        list of the owner's own bank accounts that the owner provided, in a separate file on the same computer. With that
+        list ShiKa recognizes transfers to one of the owner's accounts, and records them with the name the owner gave that
+        account, without its number. None of this is information received from Google APIs, but it is stored and handled
+        the same way: on the computer and in the owner's OneDrive, not shared with anyone.
       </li>
       <li>Apart from the log and the book, the content of emails and events is not stored: it is read from Google when needed and then discarded.</li>
       <li>Also stored are each account's permission, encrypted with Windows data protection (it can only be decrypted by the owner's Windows user, on that computer), and a technical log of what happened (for example, that a request to Google failed), which never includes what an email says.</li>
@@ -295,7 +383,13 @@
       <a href="https://www.anthropic.com/legal/privacy">privacy policy</a>, which state that it does not
       use data received through the API to train its models.
     </p>
-    <p>The emails ShiKa reads on its own for expenses are not sent to Claude. Claude only sees what was taken from them (the amount, the due date, which service) when its owner asks about expenses.</p>
+    <p>
+      The emails ShiKa reads on its own for expenses are not sent to Claude. When its owner asks about expenses, Claude
+      sees what was taken from them and stored in the book: the amount, the currency, the day and the due date, the
+      merchant or product, how it was paid, the installments, what each card owes, the last four digits of a transfer's
+      destination account, and the subject of the emails it could not read (in case its owner asks to have one read, like
+      any other email).
+    </p>
     <p>
       In addition, its owner builds and maintains ShiKa with <strong>Claude Code</strong>, another Anthropic tool, on a
       personal subscription. While doing so, Claude Code may see parts of emails and events: for example, the format of a
