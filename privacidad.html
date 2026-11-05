@@ -55,7 +55,7 @@
   <p class="idioma"><a href="index.html">← ShiKa</a> · <a href="#english">English version</a></p>
 
   <h1>Política de privacidad de ShiKa</h1>
-  <p class="bajada">Última actualización: 22 de octubre de 2026</p>
+  <p class="bajada">Última actualización: 4 de noviembre de 2026</p>
 
   <p>
     ShiKa es un asistente personal que Valentín Coluccio programó para usar él mismo, en su
@@ -69,8 +69,8 @@
     busca sola los mails de diez remitentes (las facturas de sus servicios, Mercado Pago, su
     banco, cada compra con su tarjeta de crédito, sus viajes y sus compras) para llevar la cuenta de sus
     gastos. Guarda unos días un diario de todo lo que hace, con lo que leyó, y sin fecha de
-    borrado lo que saca de esos mails (montos, comercios, productos, cuotas, vencimientos), en
-    su computadora y en su OneDrive. No vende ni comparte nada con nadie, salvo con Anthropic:
+    borrado lo que saca de esos mails (montos, comercios, productos, cuotas, vencimientos) y
+    un pedazo de los que no pudo leer, en su computadora y en su OneDrive. No vende ni comparte nada con nadie, salvo con Anthropic:
     lo necesario para que Claude arme la respuesta, y lo que ve Claude Code cuando su dueño
     programa ShiKa.
   </div>
@@ -112,8 +112,8 @@
         <li>Anthropic: los recibos de Claude;</li>
         <li>Mercado Libre: el aviso de cada compra («Compraste ...»).</li>
       </ul>
-      Abre solo los que tienen el asunto de una factura, un pago, una compra, un viaje, una
-      transferencia o un resumen de tarjeta (de la publicidad de esos remitentes mira el asunto
+      Abre solo los que tienen el asunto de una factura, un pago, una compra o su devolución,
+      un viaje, una transferencia o un resumen de tarjeta (de la publicidad de esos remitentes mira el asunto
       y nada más), y saca de cada uno lo que hace falta para la cuenta (punto 4). La primera vez
       que mira un remitente trae sus mails desde el 1 de enero de 2026, para armar la historia
       (los avisos de compra de su tarjeta de crédito y los de Mercado Libre, desde el 21 de octubre, cuando empezó a leerlos). Después
@@ -154,23 +154,38 @@
         <li>el monto, la moneda (pesos o dólares), el día y, si es una factura, el vencimiento;</li>
         <li>el comercio o el servicio, y lo que se compró (el producto de Mercado Libre, el plan de Claude);</li>
         <li>con qué se pagó (Mercado Pago, su tarjeta de crédito, la de Mercado Pago) y en cuántas cuotas;</li>
-        <li>de una transferencia desde su banco, los últimos cuatro números de la cuenta de destino (el número entero no se guarda);</li>
+        <li>de una transferencia desde su banco, los últimos cuatro números de la cuenta de destino (el número entero no se anota);</li>
         <li>del resumen de una tarjeta, el saldo en pesos y en dólares, el pago mínimo, el cierre y el vencimiento.</li>
       </ul>
-      No guarda el texto de los mails, ni lo demás que traen (por ejemplo, los últimos números
-      de la tarjeta, el código de autorización de una compra o el recorrido de un viaje). El
-      libro no se borra solo: es el historial de los gastos, y queda hasta que su dueño lo
-      borre.
+      Del resto de un mail que leyó bien no guarda nada (por ejemplo, los últimos números de la
+      tarjeta, el código de autorización de una compra o el recorrido de un viaje).
     </li>
     <li>
-      <strong>Dónde termina lo de Google.</strong> En el mismo libro hay cosas que no salen de
-      Google: los gastos que su dueño le cuenta por voz o por escrito (lo que paga en efectivo,
-      las cuotas de una compra cuando ShiKa se las pregunta), lo que él corrige o marca (la
-      categoría de un comercio, si un gasto es de su empresa), y una lista de sus propias
-      cuentas bancarias que él mismo le dio, en un archivo aparte en la misma computadora. Con esa lista ShiKa reconoce las transferencias
-      a una cuenta suya, y las anota con el nombre que él le puso a esa cuenta, sin su número.
-      Nada de eso es información recibida de las API de Google, pero se guarda y se trata igual:
-      en la computadora y en su OneDrive, sin compartirse con nadie.
+      <strong>Un pedazo de los mails que no pudo leer.</strong> Cuando las reglas no entienden
+      un mail de esos remitentes, el libro guarda además un pedazo de lo que dice, para que su
+      dueño vea qué era sin abrirlo: del aviso de compra de su tarjeta de crédito, el comercio,
+      la moneda y el monto; de los demás, el principio del texto sin el pie, hasta 300 letras.
+      Como es lo que el mail diga al principio, ahí puede quedar un dato que de un mail leído
+      bien no se guarda (un número de cuenta entero, los últimos números de una tarjeta, una
+      dirección). ShiKa muestra ese pedazo solo en su ventana de la computadora («Para
+      revisar»): no se lo manda a Claude.
+    </li>
+    <li>
+      El libro no se borra solo: es el historial de los gastos, y queda, con esos pedazos,
+      hasta que su dueño lo borre.
+    </li>
+    <li>
+      <strong>Dónde termina lo de Google.</strong> Junto con lo que sale de los mails, ShiKa
+      guarda cosas que no salen de Google:
+      <ul>
+        <li>los gastos que su dueño le cuenta por voz o por escrito (lo que paga en efectivo, las cuotas de una compra cuando ShiKa se las pregunta), los saldos de sus cuentas que él le pone, y lo que él corrige o marca (la categoría de un comercio, si un gasto es de su empresa);</li>
+        <li>una lista de sus propias cuentas bancarias que él mismo le dio, en un archivo aparte en la misma computadora. Con esa lista ShiKa reconoce las transferencias a una cuenta suya, y las anota con el nombre que él le puso a esa cuenta, sin su número;</li>
+        <li>las notificaciones de pagos de Mercado Pago y de su banco que le llegan al celular, y los comprobantes y las facturas que él le comparte o le sube;</li>
+        <li>los resúmenes de sus cuentas y de sus tarjetas de crédito, que él mismo baja en PDF y le deja en una carpeta de la computadora: de ahí sale cada movimiento y cada compra, una por una.</li>
+      </ul>
+      Todo eso se cruza con lo que sale de los mails (la misma compra queda una sola vez, con lo
+      que sepa cada lado), pero nada de eso es información recibida de las API de Google. Queda
+      en la computadora y en su OneDrive, como lo demás.
     </li>
     <li>
       Fuera del diario y del libro, el contenido de los mails y de los eventos no se guarda: se
@@ -211,8 +226,9 @@
   <p>
     Además, su dueño programa y revisa ShiKa con <strong>Claude Code</strong>, otra herramienta de
     Anthropic, con su suscripción personal. Al hacerlo, Claude Code puede ver partes de mails y
-    de eventos: por ejemplo, el formato de una factura para enseñarle a ShiKa a leerla, o el
-    diario de los últimos días para encontrar una falla. Eso se rige por las
+    de eventos: por ejemplo, el formato de una factura para enseñarle a ShiKa a leerla, o lo que
+    quedó en el diario de los últimos días o en el libro de gastos (también los pedazos de los
+    mails que no pudo leer) para encontrar una falla. Eso se rige por las
     <a href="https://www.anthropic.com/legal/consumer-terms">condiciones para consumidores</a> de
     Anthropic, y esa suscripción tiene apagada la opción que le permite a Anthropic usar las
     charlas para entrenar sus modelos.
@@ -263,7 +279,7 @@
 
   <section id="english" lang="en">
     <h1>ShiKa privacy policy</h1>
-    <p class="bajada">Last updated: October 22, 2026</p>
+    <p class="bajada">Last updated: November 4, 2026</p>
 
     <p>
       ShiKa is a personal assistant that Valentín Coluccio built for his own use, on his own
@@ -278,8 +294,8 @@
       Mercado Pago, the owner's bank, each purchase with the owner's credit card, trips and purchases),
       to keep track of expenses. It keeps a log of everything it does for a few days, including
       what it read, and keeps what it takes from those emails (amounts, merchants, products,
-      installments, due dates) with no deletion date, on its owner's computer and in the owner's
-      OneDrive. It does not sell or share anything with anyone, except with Anthropic:
+      installments, due dates) and a piece of those it could not read with no deletion date, on its
+      owner's computer and in the owner's OneDrive. It does not sell or share anything with anyone, except with Anthropic:
       what Claude needs to write the answer, and what Claude Code sees when its owner works on ShiKa.
     </div>
 
@@ -310,7 +326,7 @@
           <li>Anthropic: the Claude receipts;</li>
           <li>Mercado Libre: the notice of each purchase ("Compraste ...").</li>
         </ul>
-        It only opens those whose subject is that of a bill, a payment, a purchase, a trip, a transfer or a card statement
+        It only opens those whose subject is that of a bill, a payment, a purchase or its refund, a trip, a transfer or a card statement
         (for advertising from those senders it looks at the subject and nothing else), and takes from each one what the
         accounting needs (section 4). The first time it checks a sender it fetches that sender's emails since January 1,
         2026, to build the history (the credit card purchase notices and those from Mercado Libre, since October 21, when it started reading them).
@@ -348,21 +364,36 @@
           <li>the amount, the currency (pesos or dollars), the day and, for a bill, the due date;</li>
           <li>the merchant or service, and what was bought (the Mercado Libre product, the Claude plan);</li>
           <li>how it was paid (Mercado Pago, the owner's credit card, the Mercado Pago card) and in how many installments;</li>
-          <li>for a transfer from the owner's bank, the last four digits of the destination account (the full number is not stored);</li>
+          <li>for a transfer from the owner's bank, the last four digits of the destination account (the full number is not recorded);</li>
           <li>for a card statement, the balance in pesos and in dollars, the minimum payment, the closing date and the due date.</li>
         </ul>
-        It does not store the text of the emails, nor anything else they contain (for example, the last digits of the card,
-        the authorization code of a purchase or the route of a trip). The book is not deleted automatically: it is the
-        expense history, and it stays until its owner deletes it.
+        From the rest of an email it read correctly it stores nothing (for example, the last digits of the card, the
+        authorization code of a purchase or the route of a trip).
       </li>
       <li>
-        <strong>Where Google data ends.</strong> The same book holds things that do not come from Google: expenses the
-        owner tells ShiKa by voice or in writing (what is paid in cash, the installments of a purchase when ShiKa asks),
-        what the owner corrects or marks (a merchant's category, whether an expense belongs to the owner's company), and a
-        list of the owner's own bank accounts that the owner provided, in a separate file on the same computer. With that
-        list ShiKa recognizes transfers to one of the owner's accounts, and records them with the name the owner gave that
-        account, without its number. None of this is information received from Google APIs, but it is stored and handled
-        the same way: on the computer and in the owner's OneDrive, not shared with anyone.
+        <strong>A piece of the emails it could not read.</strong> When the rules do not understand an email from those
+        senders, the book also stores a piece of what it says, so its owner can see what it was without opening it: for the
+        owner's credit card purchase notice, the merchant, the currency and the amount; for the others, the beginning of the
+        text without the footer, up to 300 characters. Since it is whatever the email says at the beginning, it may contain
+        a detail that is not stored from an email read correctly (a full account number, the last digits of a card, an
+        address). ShiKa only shows that piece in its window on the computer ("Para revisar"): it does not send it to Claude.
+      </li>
+      <li>
+        The book is not deleted automatically: it is the expense history, and it stays, with those pieces, until its owner
+        deletes it.
+      </li>
+      <li>
+        <strong>Where Google data ends.</strong> Along with what comes from the emails, ShiKa stores things that do not come
+        from Google:
+        <ul>
+          <li>expenses the owner tells ShiKa by voice or in writing (what is paid in cash, the installments of a purchase when ShiKa asks), the account balances the owner enters, and what the owner corrects or marks (a merchant's category, whether an expense belongs to the owner's company);</li>
+          <li>a list of the owner's own bank accounts that the owner provided, in a separate file on the same computer. With that list ShiKa recognizes transfers to one of the owner's accounts, and records them with the name the owner gave that account, without its number;</li>
+          <li>the payment notifications from Mercado Pago and from the owner's bank that arrive on the owner's phone, and the receipts and invoices the owner shares or uploads;</li>
+          <li>the statements of the owner's accounts and credit cards, which the owner downloads as PDF and leaves in a folder on the computer: each transaction and each purchase comes from there, one by one.</li>
+        </ul>
+        All of this is matched against what comes from the emails (the same purchase is recorded once, with what each side
+        knows), but none of it is information received from Google APIs. It stays on the computer and in the owner's
+        OneDrive, like the rest.
       </li>
       <li>Apart from the log and the book, the content of emails and events is not stored: it is read from Google when needed and then discarded.</li>
       <li>Also stored are each account's permission, encrypted with Windows data protection (it can only be decrypted by the owner's Windows user, on that computer), and a technical log of what happened (for example, that a request to Google failed), which never includes what an email says.</li>
@@ -393,7 +424,8 @@
     <p>
       In addition, its owner builds and maintains ShiKa with <strong>Claude Code</strong>, another Anthropic tool, on a
       personal subscription. While doing so, Claude Code may see parts of emails and events: for example, the format of a
-      bill to teach ShiKa how to read it, or the log of the last few days to find a fault. This is governed by Anthropic's
+      bill to teach ShiKa how to read it, or what is in the log of the last few days or in the expense book (including the
+      pieces of the emails it could not read) to find a fault. This is governed by Anthropic's
       <a href="https://www.anthropic.com/legal/consumer-terms">consumer terms</a>, and that subscription has turned off the
       setting that allows Anthropic to use conversations to train its models.
     </p>
