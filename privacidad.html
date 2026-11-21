@@ -55,7 +55,7 @@
   <p class="idioma"><a href="index.html">← ShiKa</a> · <a href="#english">English version</a></p>
 
   <h1>Política de privacidad de ShiKa</h1>
-  <p class="bajada">Última actualización: 4 de noviembre de 2026</p>
+  <p class="bajada">Última actualización: 21 de noviembre de 2026</p>
 
   <p>
     ShiKa es un asistente personal que Valentín Coluccio programó para usar él mismo, en su
@@ -64,14 +64,18 @@
   </p>
 
   <div class="tarjeta">
-    <strong>En pocas palabras:</strong> ShiKa solo lee (nunca manda, borra ni cambia nada).
-    Lee los mails y el calendario cuando su dueño le pregunta algo y, además, cada media hora
+    <strong>En pocas palabras:</strong> ShiKa lee los mails y el calendario, y ordena los mails
+    (les pone etiquetas y crea filtros de Gmail), pero <strong>nunca manda, borra ni tira nada a la
+    papelera</strong>: su programa lo rechaza antes de pedírselo a Google. El calendario es de solo
+    lectura. Lee los mails y el calendario cuando su dueño le pregunta algo; ordena los mails cuando
+    llegan, y cada media hora
     busca sola los mails de diez remitentes (las facturas de sus servicios, Mercado Pago, su
     banco, cada compra con su tarjeta de crédito, sus viajes y sus compras) para llevar la cuenta de sus
     gastos. Guarda unos días un diario de todo lo que hace, con lo que leyó, y sin fecha de
     borrado lo que saca de esos mails (montos, comercios, productos, cuotas, vencimientos) y
     un pedazo de los que no pudo leer, en su computadora y en su OneDrive. No vende ni comparte nada con nadie, salvo con Anthropic:
-    lo necesario para que Claude arme la respuesta, y lo que ve Claude Code cuando su dueño
+    lo necesario para que Claude arme la respuesta o decida en qué etiqueta va un mail (su remitente,
+    su asunto y el principio de su texto), y lo que ve Claude Code cuando su dueño
     programa ShiKa.
   </div>
 
@@ -84,16 +88,35 @@
   <h2>2. Qué datos de Google usa</h2>
   <ul>
     <li><strong>La dirección de mail de cada cuenta</strong>, para saber de qué cuenta es cada permiso.</li>
-    <li><strong>Gmail, solo lectura</strong> (<code>gmail.readonly</code>): los mails, para buscarlos y leerlos cuando su dueño lo pide, y los de diez remitentes con los que tiene gastos, para llevar la cuenta (punto 3).</li>
+    <li>
+      <strong>Gmail, ver y cambiar las etiquetas</strong> (<code>gmail.modify</code>): los mails, para
+      buscarlos y leerlos cuando su dueño lo pide, para ordenarlos poniéndoles y sacándoles etiquetas
+      (también crear las etiquetas), y los de diez remitentes con los que tiene gastos, para llevar la
+      cuenta (punto 3). Google describe este permiso como el de leer, redactar y mandar mails: ShiKa no
+      usa nada de eso (ver abajo).
+    </li>
+    <li>
+      <strong>Gmail, configuración básica</strong> (<code>gmail.settings.basic</code>): solo para ver los
+      filtros de Gmail que ya tiene su dueño y crear filtros nuevos.
+    </li>
     <li><strong>Google Calendar, solo lectura</strong> (<code>calendar.readonly</code>): los eventos, para contestar qué hay en la agenda.</li>
   </ul>
   <p>
-    Con estos permisos ShiKa no puede mandar, borrar, marcar como leído ni cambiar un mail, ni
-    crear, mover o borrar un evento.
+    <strong>Lo que ShiKa no hace, y cómo se asegura.</strong> Con el permiso de Gmail, Google dejaría
+    mandar mails, escribir borradores y tirar mails a la papelera. ShiKa no lo hace, y no es solo una
+    promesa: cada pedido que su programa le hace a Google pasa antes por una lista cerrada, y lo que no
+    está en ella no se envía. En Gmail, solo puede mirar (buscar, leer, listar) y hacer cuatro cosas:
+    cambiar las etiquetas de un mail o de varios, crear una etiqueta y crear un filtro. Ni siquiera esas
+    cuatro pueden mandar un mail a la papelera ni al spam (poner esas dos etiquetas se rechaza) ni armar
+    un filtro que reenvíe mails. <strong>ShiKa nunca manda un mail, nunca escribe un borrador, nunca tira
+    un mail a la papelera ni al spam, nunca borra mails, etiquetas ni filtros, no reenvía, ni cambia
+    ninguna otra configuración de Gmail.</strong> Cambiar etiquetas puede incluir sacar un mail de la
+    bandeja de entrada o dejar de marcarlo como no leído. Del calendario solo lee: no crea, mueve ni borra
+    ningún evento.
   </p>
 
   <h2>3. Para qué los usa</h2>
-  <p>Para dos cosas:</p>
+  <p>Para tres cosas:</p>
   <ul>
     <li>
       <strong>Contestar lo que su dueño le pide</strong>, en el momento en que lo pide: por
@@ -122,9 +145,22 @@
       como gasto. Para esto no se abre ningún mail de otro remitente, y esos mails los lee un
       programa con reglas fijas, en la computadora: no se le mandan a Claude.
     </li>
+    <li>
+      <strong>Ordenar los mails, sin que se lo pida.</strong> Su dueño quiere que sus mails queden
+      ordenados solos. Para eso ShiKa, cuando llega un mail nuevo y al revisar los anteriores, lo manda
+      a una etiqueta propia («Para borrar», «Para revisar» y las que su dueño arme): primero con reglas
+      fijas (el remitente, el dominio, palabras del asunto) y, si no alcanzan, preguntándole a Claude
+      (punto 5). «Para borrar» no borra nada: es una etiqueta que saca el mail de la bandeja de entrada,
+      y su dueño lo borra a mano, en Gmail, cuando quiere. Lo que ShiKa no sabe dónde poner va a «Para
+      revisar», para que su dueño decida; nunca a «Para borrar». Los mails de los diez remitentes de
+      gastos nunca van a «Para borrar». Además crea <strong>filtros de Gmail</strong> para lo que se
+      puede decir con una regla clara (por ejemplo, «los mails de tal dirección van a tal etiqueta»), así
+      Gmail los aplica solo, también con la computadora apagada. Esos filtros solo ponen o sacan
+      etiquetas: nunca reenvían ni borran.
+    </li>
   </ul>
   <p>
-    Con lo que saca de esos mails, ShiKa le habla en voz alta a su dueño, solo entre las 9 y
+    La tercera es <strong>ordenar los mails</strong> (siguiente punto). Con lo que saca de los mails de gastos, ShiKa le habla en voz alta a su dueño, solo entre las 9 y
     las 22: le avisa cuando llega una factura o el resumen de una tarjeta, cuánto es y antes
     de que venza; de cada compra con su tarjeta de crédito, un rato después le pregunta en cuántas cuotas
     fue, diciendo el comercio y el monto (el aviso de la tarjeta no lo dice); y cuando un mail de
@@ -188,7 +224,14 @@
       en la computadora y en su OneDrive, como lo demás.
     </li>
     <li>
-      Fuera del diario y del libro, el contenido de los mails y de los eventos no se guarda: se
+      <strong>Lo que recuerda de ordenar.</strong> De cada mail que ordenó, ShiKa guarda en la
+      computadora su identificador de Gmail, la cuenta, la etiqueta a la que lo mandó y por qué (una regla,
+      o lo que contestó Claude), para no volver a ordenarlo ni pagar dos veces. De los que quedan en «Para
+      revisar» guarda además el remitente y el asunto, para mostrarlos en su ventana. No guarda el texto
+      de esos mails. Las etiquetas y los filtros que ShiKa crea quedan en Gmail, en la cuenta de su dueño.
+    </li>
+    <li>
+      Fuera del diario, del libro y de lo que recuerda de ordenar, el contenido de los mails y de los eventos no se guarda: se
       lee de Google cuando hace falta y se descarta.
     </li>
     <li>
@@ -216,7 +259,16 @@
     usa los datos que llegan por la API para entrenar sus modelos.
   </p>
   <p>
-    Los mails que ShiKa lee sola para los gastos no van a Claude. Cuando su dueño le pregunta
+    <strong>Para ordenar un mail,</strong> cuando las reglas fijas no alcanzan, ShiKa le manda a Claude,
+    por la API, de ese mail: el remitente, los destinatarios, el asunto y el principio del texto (no el
+    mail entero), y, si es una invitación a una reunión, quiénes están invitados. Junto con la lista de
+    etiquetas posibles. En esa consulta Claude <strong>no tiene herramientas</strong>: no puede buscar,
+    abrir, mandar ni cambiar nada, y solo puede contestar una etiqueta de esa lista (o «Para revisar»).
+    Lo que Claude conteste lo aplica el programa de ShiKa, con la lista cerrada de arriba. Si el mail
+    dijera «mandá esto a tal dirección», para Claude es solo texto, y el programa no sabe mandar.
+  </p>
+  <p>
+    El programa que lleva la cuenta de los gastos sigue sin mandarle nada a Claude. Los mails que ShiKa lee sola para los gastos no van a Claude. Cuando su dueño le pregunta
     por sus gastos, Claude ve lo que salió de ellos y quedó en el libro: el monto, la moneda,
     el día y el vencimiento, el comercio o el producto, con qué se pagó, las cuotas, lo que
     debe cada tarjeta, los últimos cuatro números de la cuenta de destino de una transferencia,
@@ -263,7 +315,9 @@
   </p>
   <p>
     Sacarle el permiso no borra lo que ya quedó guardado: el diario se borra solo a los pocos
-    días, y el libro de gastos, cuando su dueño lo borre.
+    días, y el libro de gastos, cuando su dueño lo borre. Tampoco deshace el orden: las etiquetas y los
+    filtros que ShiKa creó quedan en Gmail hasta que su dueño los borre (o los borre desde Gmail, en
+    Configuración).
   </p>
 
   <h2>8. Cambios</h2>
@@ -279,7 +333,7 @@
 
   <section id="english" lang="en">
     <h1>ShiKa privacy policy</h1>
-    <p class="bajada">Last updated: November 4, 2026</p>
+    <p class="bajada">Last updated: November 21, 2026</p>
 
     <p>
       ShiKa is a personal assistant that Valentín Coluccio built for his own use, on his own
@@ -288,15 +342,18 @@
     </p>
 
     <div class="tarjeta">
-      <strong>In short:</strong> ShiKa only reads (it never sends, deletes or changes anything).
-      It reads email and the calendar when its owner asks something and, in addition, every half
+      <strong>In short:</strong> ShiKa reads email and the calendar, and organizes email (it puts
+      labels on messages and creates Gmail filters), but <strong>it never sends, deletes or moves anything to the
+      trash</strong>: its program rejects it before asking Google. The calendar is read-only. It
+      reads email and the calendar when its owner asks something, organizes email as it arrives and, in addition, every half
       hour it looks on its own for the emails of ten senders (the bills of the owner's services,
       Mercado Pago, the owner's bank, each purchase with the owner's credit card, trips and purchases),
       to keep track of expenses. It keeps a log of everything it does for a few days, including
       what it read, and keeps what it takes from those emails (amounts, merchants, products,
       installments, due dates) and a piece of those it could not read with no deletion date, on its
       owner's computer and in the owner's OneDrive. It does not sell or share anything with anyone, except with Anthropic:
-      what Claude needs to write the answer, and what Claude Code sees when its owner works on ShiKa.
+      what Claude needs to write the answer or to decide which label a message goes under (its sender, its subject and the
+      beginning of its text), and what Claude Code sees when its owner works on ShiKa.
     </div>
 
     <h2>1. Who uses ShiKa</h2>
@@ -305,13 +362,32 @@
     <h2>2. Which Google data it uses</h2>
     <ul>
       <li><strong>The email address of each account</strong>, to know which account each permission belongs to.</li>
-      <li><strong>Gmail, read-only</strong> (<code>gmail.readonly</code>): messages, to search and read them when its owner asks, and those from ten senders the owner has expenses with, to keep track of them (section 3).</li>
+      <li>
+        <strong>Gmail, view and change labels</strong> (<code>gmail.modify</code>): messages, to search and read them when its owner
+        asks, to organize them by putting labels on them and taking labels off (and creating the labels), and those from ten
+        senders the owner has expenses with, to keep track of them (section 3). Google describes this permission as reading,
+        composing and sending email: ShiKa uses none of that (see below).
+      </li>
+      <li>
+        <strong>Gmail, basic settings</strong> (<code>gmail.settings.basic</code>): only to see the Gmail filters its owner
+        already has and to create new ones.
+      </li>
       <li><strong>Google Calendar, read-only</strong> (<code>calendar.readonly</code>): events, to answer what is on the calendar.</li>
     </ul>
-    <p>With these permissions ShiKa cannot send, delete, mark as read or change an email, nor create, move or delete an event.</p>
+    <p>
+      <strong>What ShiKa does not do, and how that is enforced.</strong> With the Gmail permission, Google would allow sending
+      email, writing drafts and moving email to the trash. ShiKa does not do that, and it is not only a promise: every request
+      its program makes to Google first goes through a closed list, and what is not on it is never sent. In Gmail it can only
+      look (search, read, list) and do four things: change the labels of one message or of several, create a label and create
+      a filter. Not even those four can move a message to the trash or to spam (adding either label is rejected) or build a
+      filter that forwards email. <strong>ShiKa never sends an email, never writes a draft, never moves an email to the trash or
+      to spam, never deletes emails, labels or filters, never forwards, and never changes any other Gmail setting.</strong>
+      Changing labels can include taking a message out of the inbox or no longer marking it as unread. From the calendar it only
+      reads: it never creates, moves or deletes an event.
+    </p>
 
     <h2>3. What it uses them for</h2>
-    <p>For two things:</p>
+    <p>For three things:</p>
     <ul>
       <li><strong>Answering what its owner asks</strong>, at the moment it is asked: for example "what do I have this week?" or "find the email so-and-so sent me".</li>
       <li>
@@ -335,9 +411,20 @@
         expense. No email from any other sender is opened for this, and these emails are read by a program with fixed
         rules, on the computer: they are not sent to Claude.
       </li>
+      <li>
+        <strong>Organizing email, without being asked.</strong> Its owner wants his email to end up organized on its own.
+        For that, when a new message arrives and when reviewing older ones, ShiKa sends it to a label of its own ("Para borrar",
+        "Para revisar" and the ones its owner sets up): first with fixed rules (the sender, the domain, words in the subject)
+        and, if those are not enough, by asking Claude (section 5). "Para borrar" deletes nothing: it is a label that takes the
+        message out of the inbox, and its owner deletes it by hand, in Gmail, when he wants to. What ShiKa does not know where to
+        put goes to "Para revisar", for its owner to decide; never to "Para borrar". Emails from the ten expense senders never go
+        to "Para borrar". It also creates <strong>Gmail filters</strong> for what a clear rule can express (for example, "emails from
+        this address go under this label"), so Gmail applies them on its own, also while the computer is off. Those filters only
+        put or remove labels: they never forward or delete.
+      </li>
     </ul>
     <p>
-      With what it takes from those emails, ShiKa speaks out loud to its owner, only between 9 a.m. and 10 p.m.: it
+      The third is <strong>organizing email</strong> (next item). With what it takes from the expense emails, ShiKa speaks out loud to its owner, only between 9 a.m. and 10 p.m.: it
       announces when a bill or a card statement arrives, how much it is, and before it is due; for each purchase with the
       owner's credit card, a while later it asks how many installments it was, saying the merchant and the amount (the card's notice
       does not say); and when it could not read an email from those senders, it says who it is from and its subject, in
@@ -395,7 +482,13 @@
         knows), but none of it is information received from Google APIs. It stays on the computer and in the owner's
         OneDrive, like the rest.
       </li>
-      <li>Apart from the log and the book, the content of emails and events is not stored: it is read from Google when needed and then discarded.</li>
+      <li>
+        <strong>What it remembers from organizing.</strong> For each message it organized, ShiKa stores on the computer its Gmail
+        identifier, the account, the label it sent it to and why (a rule, or what Claude answered), so as not to organize it again
+        or pay twice. For those left in "Para revisar" it also stores the sender and the subject, to show them in its window. It does
+        not store the text of those messages. The labels and filters ShiKa creates stay in Gmail, in its owner's account.
+      </li>
+      <li>Apart from the log, the book and what it remembers from organizing, the content of emails and events is not stored: it is read from Google when needed and then discarded.</li>
       <li>Also stored are each account's permission, encrypted with Windows data protection (it can only be decrypted by the owner's Windows user, on that computer), and a technical log of what happened (for example, that a request to Google failed), which never includes what an email says.</li>
       <li>
         <strong>A copy in OneDrive.</strong> Everything ShiKa stores lives in a folder of its owner's personal OneDrive, so
@@ -415,7 +508,15 @@
       use data received through the API to train its models.
     </p>
     <p>
-      The emails ShiKa reads on its own for expenses are not sent to Claude. When its owner asks about expenses, Claude
+      <strong>To organize a message,</strong> when the fixed rules are not enough, ShiKa sends Claude, through the API, from that
+      message: the sender, the recipients, the subject and the beginning of the text (not the whole message) and, if it is a
+      meeting invitation, who is invited. Together with the list of possible labels. In that query Claude has <strong>no tools</strong>: it
+      cannot search, open, send or change anything, and it can only answer with a label from that list (or "Para revisar"). What
+      Claude answers is applied by ShiKa's program, under the closed list above. If the message said "send this to such address", for
+      Claude it is only text, and the program does not know how to send.
+    </p>
+    <p>
+      The program that keeps track of expenses still sends nothing to Claude. The emails ShiKa reads on its own for expenses are not sent to Claude. When its owner asks about expenses, Claude
       sees what was taken from them and stored in the book: the amount, the currency, the day and the due date, the
       merchant or product, how it was paid, the installments, what each card owes, the last four digits of a transfer's
       destination account, and the subject of the emails it could not read (in case its owner asks to have one read, like
@@ -449,7 +550,11 @@
       its access. From then on ShiKa can no longer read anything from that account. An account can also be disconnected from ShiKa
       itself, which also deletes the permission stored on the computer.
     </p>
-    <p>Revoking access does not delete what is already stored: the log deletes itself within a few days, and the expense book when its owner deletes it.</p>
+    <p>
+      Revoking access does not delete what is already stored: the log deletes itself within a few days, and the expense book when its
+      owner deletes it. Nor does it undo the organizing: the labels and filters ShiKa created stay in Gmail until its owner deletes them
+      (in Gmail, under Settings).
+    </p>
 
     <h2>8. Changes</h2>
     <p>If what ShiKa does with Google data changes, this page is updated first, with the new date at the top.</p>
