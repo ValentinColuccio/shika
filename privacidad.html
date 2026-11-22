@@ -68,7 +68,7 @@
     (les pone etiquetas y crea filtros de Gmail), pero <strong>nunca manda, borra ni tira nada a la
     papelera</strong>: su programa lo rechaza antes de pedírselo a Google. El calendario es de solo
     lectura. Lee los mails y el calendario cuando su dueño le pregunta algo; ordena los mails cuando
-    llegan, y cada media hora
+    llegan y cuando los manda, y cada media hora
     busca sola los mails de diez remitentes (las facturas de sus servicios, Mercado Pago, su
     banco, cada compra con su tarjeta de crédito, sus viajes y sus compras) para llevar la cuenta de sus
     gastos. Guarda unos días un diario de todo lo que hace, con lo que leyó, y sin fecha de
@@ -157,6 +157,10 @@
       puede decir con una regla clara (por ejemplo, «los mails de tal dirección van a tal etiqueta»), así
       Gmail los aplica solo, también con la computadora apagada. Esos filtros solo ponen o sacan
       etiquetas: nunca reenvían ni borran.
+      <strong>También ordena los mails que su dueño manda.</strong> A esos solo les suma una etiqueta: siguen en
+      «Enviados» de Gmail, de donde ShiKa nunca los saca. Los manda a una etiqueta según a quién van, nunca a
+      «Para borrar» ni a «Para revisar», y si no sabe dónde ponerlos los deja donde están. (En la casilla de correo
+      de la empresa, que no es de Google, ShiKa mueve esos mails de «Enviados» a una carpeta.)
     </li>
   </ul>
   <p>
@@ -260,7 +264,7 @@
   </p>
   <p>
     <strong>Para ordenar un mail,</strong> cuando las reglas fijas no alcanzan, ShiKa le manda a Claude,
-    por la API, de ese mail: el remitente, los destinatarios, el asunto y el principio del texto (no el
+    por la API, de ese mail (también si es uno que su dueño mandó): el remitente, los destinatarios, el asunto y el principio del texto (no el
     mail entero), y, si es una invitación a una reunión, quiénes están invitados. Junto con la lista de
     etiquetas posibles. En esa consulta Claude <strong>no tiene herramientas</strong>: no puede buscar,
     abrir, mandar ni cambiar nada, y solo puede contestar una etiqueta de esa lista (o «Para revisar»).
@@ -345,7 +349,7 @@
       <strong>In short:</strong> ShiKa reads email and the calendar, and organizes email (it puts
       labels on messages and creates Gmail filters), but <strong>it never sends, deletes or moves anything to the
       trash</strong>: its program rejects it before asking Google. The calendar is read-only. It
-      reads email and the calendar when its owner asks something, organizes email as it arrives and, in addition, every half
+      reads email and the calendar when its owner asks something, organizes email as it arrives and as its owner sends it and, in addition, every half
       hour it looks on its own for the emails of ten senders (the bills of the owner's services,
       Mercado Pago, the owner's bank, each purchase with the owner's credit card, trips and purchases),
       to keep track of expenses. It keeps a log of everything it does for a few days, including
@@ -421,6 +425,10 @@
         to "Para borrar". It also creates <strong>Gmail filters</strong> for what a clear rule can express (for example, "emails from
         this address go under this label"), so Gmail applies them on its own, also while the computer is off. Those filters only
         put or remove labels: they never forward or delete.
+        <strong>It also organizes the emails its owner sends.</strong> To those it only adds a label: they stay in Gmail's
+        "Sent" folder, from which ShiKa never takes them out. It sends them to a label according to who they are addressed to,
+        never to "Para borrar" or "Para revisar", and if it does not know where to put one it leaves it where it is. (In the
+        company's mailbox, which is not a Google account, ShiKa moves those emails from "Sent" to a folder.)
       </li>
     </ul>
     <p>
@@ -509,7 +517,7 @@
     </p>
     <p>
       <strong>To organize a message,</strong> when the fixed rules are not enough, ShiKa sends Claude, through the API, from that
-      message: the sender, the recipients, the subject and the beginning of the text (not the whole message) and, if it is a
+      message (also if it is one its owner sent): the sender, the recipients, the subject and the beginning of the text (not the whole message) and, if it is a
       meeting invitation, who is invited. Together with the list of possible labels. In that query Claude has <strong>no tools</strong>: it
       cannot search, open, send or change anything, and it can only answer with a label from that list (or "Para revisar"). What
       Claude answers is applied by ShiKa's program, under the closed list above. If the message said "send this to such address", for
